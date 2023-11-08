@@ -13,6 +13,7 @@ import UserSessionModel from "@models/users_sessions.model";
 
 import ArticleModel from "@models/articles.model";
 import CategoryModel from "@/models/categories.model";
+import ArticleCategoryModel from "@/models/articles_categories.model";
 
 const sequelize = new Sequelize(
   dbConfig.database as string,
@@ -34,8 +35,8 @@ export const DB = {
   UsersSessions: UserSessionModel(sequelize),
 
   Articles: ArticleModel(sequelize),
-
   Categories: CategoryModel(sequelize),
+  ArticleCategory: ArticleCategoryModel(sequelize),
 
   sequelize, // connection instance (RAW queries)
   Sequelize, // library

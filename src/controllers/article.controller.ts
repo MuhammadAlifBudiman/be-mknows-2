@@ -17,6 +17,12 @@ export class ArticleController {
     res.status(200).json(apiResponse(200, "OK", "Get Articles Success", response));
   });
 
+  public findOne = asyncHandler(async (req: RequestWithUser, res: Response, next: NextFunction) => {
+    const { article_id } = req.params;
+    const response: Article = await this.article.findArticle(article_id);
+    res.status(200).json(apiResponse(200, "OK", "Get Article Success", response));
+  });
+
   public createArticle = asyncHandler(async (req: RequestWithUser, res: Response, next: NextFunction) => {
     const user_id = req.user.pk as number;
     const data: CreateArticleDto = req.body;

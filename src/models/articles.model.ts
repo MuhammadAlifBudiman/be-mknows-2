@@ -6,6 +6,7 @@ import { Article } from "@interfaces/article.interface";
 
 import { UserModel } from "@models/users.model";
 import { FileModel } from "@models/files.model";
+import { ArticleCategoryModel } from "./articles_categories.model";
 
 export type ArticleCreationAttributes = Optional<Article, "pk" | "uuid">;
 
@@ -22,6 +23,7 @@ export class ArticleModel extends Model<Article, ArticleCreationAttributes> impl
 
   public readonly thumbnail: File;
   public readonly author: User;
+  public readonly categories: ArticleCategoryModel[];
 
   public readonly created_at!: Date;
   public readonly updated_at!: Date;
